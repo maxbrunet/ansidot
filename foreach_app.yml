@@ -1,0 +1,40 @@
+- name: '{{ app.name }} - check required packages are installed'
+  package:
+    name: '{{ app.packages }}'
+  when: app.packages is defined
+  tags: packages
+
+- name: '{{ app.name }} - clone Git repositories'
+  git:
+    repo: '{{ item.repo }}'
+    dest: '{{ item.dest }}' 
+    version: '{{ item.version | default(omit) }}'
+  with_items: '{{ app.git }}'
+  loop_control:
+    label: '{{ item.repo }}'
+  when: app.git is defined
+  tags: git
+
+- name: '{{ app.name }} - ensure required directories exits'
+  file:
+    path: '{{ item.path }}'
+    state: directory
+    recurse: true
+    mode: '{{ item.mode | default(omit) }}'
+  with_items: '{{ app.directories }}'
+  loop_control:
+    label: '{{ item.path }}'
+  when: app.directories is defined
+  tags: directories
+
+- name: '{{ app.name }} - link dotfiles'
+  file:
+    path: '{{ item.path }}'
+    src: '{{ item.src }}'
+    force: '{{ item.force | default(omit) }}'
+    state: link
+  with_items: '{{ app.dotfiles }}'
+  loop_control:
+    label: '{{ item.path }}'
+  when: app.dotfiles is defined
+  tags: dotfiles

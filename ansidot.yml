@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - name: Install configurations and plugins
+      include_tasks: foreach_app.yml
+      with_items: '{{ apps }}'
+      loop_control:
+        loop_var: app
+      tags:
+        - packages
+        - git
+        - directories
+        - dotfiles
