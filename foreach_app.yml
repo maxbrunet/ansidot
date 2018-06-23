@@ -9,6 +9,7 @@
     repo: '{{ item.repo }}'
     dest: '{{ item.dest }}' 
     version: '{{ item.version | default(omit) }}'
+    recursive: '{{ item.recursive | default(true) }}'
   with_items: '{{ app.git }}'
   loop_control:
     label: '{{ item.repo }}'
