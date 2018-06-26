@@ -6,6 +6,17 @@
 
 - name: '{{ app.name }} - ensure required directories exits'
   file:
+    path: '{{ item }}'
+    state: directory
+  with_items: '{{ (
+                     app.git | default({}) | map(attribute="dest") | list +
+                     app.dotfiles | default({}) | map(attribute="path") | list
+                  ) | map("dirname") | unique | sort | list
+               }}'
+  tags: directories
+
+- name: '{{ app.name }} - set directory permissions'
+  file:
     path: '{{ item.path }}'
     state: directory
     recurse: true
