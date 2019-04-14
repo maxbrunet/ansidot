@@ -1,0 +1,19 @@
+---
+# meta file for ansidot
+
+galaxy_info:
+  author: Maxime Brunet
+  description: Deploy and manage dotfiles and plugins for an app.
+  license: MIT
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: GenericUNIX
+      versions:
+        - all
+
+  galaxy_tags:
+    - dotfiles
+
+dependencies: []

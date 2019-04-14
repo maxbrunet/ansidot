@@ -2,7 +2,8 @@
 - hosts: all
   tasks:
     - name: Install configurations and plugins
-      include_tasks: foreach_app.yml
+      include_role:
+        name: .
       with_items: '{{ apps }}'
       loop_control:
         loop_var: app

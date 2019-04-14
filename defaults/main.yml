@@ -1,0 +1,21 @@
+---
+# defaults file for ansidot
+
+app: {}
+#  packages:
+#    - package1
+#    - package2
+#  git:
+#    - repo: https://git.example.org/this/repo
+#      dest: /path/to/this/repo
+#    - repo: https://git.example.org/that/repo
+#      dest: /path/to/that/repo
+#      version: v1.2.3
+#  dotfiles:
+#    - path: ~/.dotsomething
+#      src: ~/path/to/.dotfiles/.dotsomething
+#    - path: ~/.dotsomethingelse
+#      src: /path/to/.dotfiles/.dotsomethingelse
+#  directories:
+#    - path: ~/.ssh
+#      mode: 0700
