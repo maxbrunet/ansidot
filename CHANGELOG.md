@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Turn tasks file into role
+- Rework directories auto-creation
 
 ### Added
 

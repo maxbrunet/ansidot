@@ -1,0 +1,14 @@
+---
+- tags: dotfiles
+  block:
+    - name: '{{ app.name }} - {{ item.path }} - ensure required directory exists'
+      file:
+        path: '{{ item.path | dirname }}'
+        state: directory
+    
+    - name: '{{ app.name }} - {{ item.path }} - link dotfiles'
+      file:
+        path: '{{ item.path }}'
+        src: '{{ item.src }}'
+        force: '{{ item.force | default(omit) }}'
+        state: link

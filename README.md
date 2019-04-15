@@ -37,12 +37,12 @@ apps:
       - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
         dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting.git
         version: 0.6.0
-    # You might need to ensure some directories exit
-    # before linking your dotfiles
-    # `path`: the directory to create (required)
-    # `mode`: set permissions on the created permissions
+    # You might want to ensure some directories have specific permissions
+    # `path`: the directory path (required)
+    # `mode`: set directory permissions
     directories:
-      - path: ~/.oh-my-zsh/custom/plugins/itscustom
+      - path: ~/.ssh
+        mode: 0700
     # Your dotfiles and where to link them
     # `path`: where to link your dotfile (required)
     # `src`: the path to your versioned file (required)

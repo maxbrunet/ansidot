@@ -1,0 +1,14 @@
+---
+- tags: git
+  block:
+    - name: '{{ app.name }} - {{ item.dest }} - ensure required directory exists'
+      file:
+        path: '{{ item.dest | dirname }}'
+        state: directory
+    
+    - name: '{{ app.name }} - {{ item.dest }} - clone Git repositories'
+      git:
+        repo: '{{ item.repo }}'
+        dest: '{{ item.dest }}'
+        version: '{{ item.version | default(omit) }}'
+        recursive: '{{ item.recursive | default(true) }}'
