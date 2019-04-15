@@ -5,7 +5,9 @@
   package:
     name: '{{ app.packages }}'
   when: app.packages is defined
-  tags: packages
+  tags:
+    - ansidot-packages
+    - packages
 
 - name: '{{ app.name }} - install Git repositories'
   include_tasks: git.yml
@@ -13,7 +15,9 @@
   loop_control:
     label: '{{ item.repo }}'
   when: app.git is defined
-  tags: git
+  tags:
+    - ansidot-git
+    - git
 
 - name: '{{ app.name }} - install dotfiles'
   include_tasks: dotfiles.yml
@@ -21,7 +25,9 @@
   loop_control:
     label: '{{ item.path }}'
   when: app.dotfiles is defined
-  tags: dotfiles
+  tags:
+    - ansidot-dotfiles
+    - dotfiles
 
 - name: '{{ app.name }} - set directory permissions'
   file:
@@ -33,4 +39,6 @@
   loop_control:
     label: '{{ item.path }}'
   when: app.directories is defined
-  tags: directories
+  tags:
+    - ansidot-directories
+    - directories

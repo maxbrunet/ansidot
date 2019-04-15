@@ -1,5 +1,7 @@
 ---
-- tags: dotfiles
+- tags:
+    - ansidot-dotfiles
+    - dotfiles
   block:
     - name: '{{ app.name }} - {{ item.path }} - ensure required directory exists'
       file:

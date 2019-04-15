@@ -1,5 +1,7 @@
 ---
-- tags: git
+- tags:
+    - ansidot-git
+    - git
   block:
     - name: '{{ app.name }} - {{ item.dest }} - ensure required directory exists'
       file:

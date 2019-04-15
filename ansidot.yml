@@ -8,6 +8,10 @@
       loop_control:
         loop_var: app
       tags:
+        - ansidot-packages
+        - ansidot-git
+        - ansidot-directories
+        - ansidot-dotfiles
         - packages
         - git
         - directories

@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Ansible Galaxy meta file
 - Changelog file
+- `ansidot-` prefixed tags (e.g. `ansidot-packages`)
 
 ## [1.2.0] - 2018-06-25
 ### Added
