@@ -3,7 +3,7 @@
   tasks:
     - name: Install configurations and plugins
       include_role:
-        name: .
+        name: '{{ playbook_dir }}'
       with_items: '{{ apps }}'
       loop_control:
         loop_var: app
